@@ -1,11 +1,11 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "fe6e98f10b74c19c334ee57d20022896e70ee6052172eb5b6dd5392a6007a54b"
+            "sha256": "0602c37dd3197c8cf56aa51e8326f1b2cb1605db482b2f8eb4a3e1284bf62ba5"
         },
         "pipfile-spec": 6,
         "requires": {
-            "python_version": "3.6.1"
+            "python_version": "3.8.2"
         },
         "sources": [
             {
@@ -26,10 +26,10 @@
         },
         "pygraphviz": {
             "hashes": [
-                "sha256:411ae84a5bc313e3e1523a1cace59159f512336318a510573b47f824edef8860"
+                "sha256:a7bec6609f37cf1e64898c59f075afd659106cf9356c5f387cecaa2e0cdb2304"
             ],
-            "markers": "python_version >= '3.6'",
-            "version": "==1.6"
+            "markers": "python_version >= '3.7'",
+            "version": "==1.7"
         },
         "sqlalchemy": {
             "hashes": [
