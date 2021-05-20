@@ -22,18 +22,30 @@ class User(Base):
     publications = relationship('Publication', back_populates='user')
     # Relation with lie, one to many (bidirectional)
     likes = relationship('Likes', back_populates='user')
+    # Relation with followRequest
+    followers = relationship('FollowRequest', backref='followed', foreign_keys='followed')
+    followeds = relationship('FollowRequest', backref='follower', foreign_keys='follower')
 
 class Profile(Base):
     __tablename__ = 'profile'
     # Columns for profile
     id = Column(Integer, primary_key=True)
-    # Relation with User, many to one (bidirectional)
-    user_id = Column(Integer, ForeignKey('user.id'))
-    user = relationship('User', back_populates='profile')
-    # Other attributes 
     name = Column(String(200))
     picture = Column(String(100))
     description = Column(String(1000))
+    # Relation with User, many to one (bidirectional)
+    user_id = Column(Integer, ForeignKey('user.id'))
+    user = relationship('User', back_populates='profile')
+
+class FollowRequest(Base):
+    __tablename__ = 'followrequest'
+    # Columns for followrequest
+    id = Column(Integer, primary_key=True)
+    status = Column(String(10))
+    # Relation with user as follower
+    follower_id = Column(Integer, ForeignKey('user.id'))
+    # Relation with user as followed
+    followed_id = Column(Integer, ForeignKey('user.id'))
 
 class Publication(Base):
     __tablename__ = 'publication'
